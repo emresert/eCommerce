@@ -30,7 +30,7 @@ export default class ProductList extends Component {
                             ))}
                     </tbody>
                 </Table>
-
+ {/** */}
 
             </div>
         )
