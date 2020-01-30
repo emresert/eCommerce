@@ -118,7 +118,7 @@ export default class App extends Component {
                   )}>
 
                   </Route>
-                  <Route path="/formdemo" component={FormDemo}></Route>
+                <Route path="/formdemo" component={FormDemo}></Route>
                 <Route component={NotFound}></Route>
 
               </Switch>

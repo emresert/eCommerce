@@ -9,6 +9,7 @@ import {
     NavItem,
     NavLink,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 export default class Navi extends Component {
     constructor(props) {
         super(props);
@@ -40,13 +41,16 @@ export default class Navi extends Component {
                                 <NavLink >Cart Item - {this.props.cartItems.length}</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="">GitHub</NavLink>
+                                <NavLink > 
+                                
+                                    <Link to="/formdemo">Form Demo</Link> 
+                                </NavLink>
                             </NavItem>
                               <CartSummary removeItemsFromCart={this.props.removeItemFromCart} cartItemsFromApp={this.props.cartItems}></CartSummary>
                         </Nav>
                     </Collapse>
                 </Navbar>
             </div>
-        )
+        )   
     }
 }

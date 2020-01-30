@@ -6,7 +6,7 @@ export default class CategoryList extends Component {
  
     render() {
         return (
-            <div className="catLeftList">
+            <div className="catLeftList mt-4">
 
                  
                 <ListGroup>
