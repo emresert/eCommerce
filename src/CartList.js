@@ -49,7 +49,7 @@ export default class CartList extends Component {
                     </tbody>
             </Table>
         )
-    }
+    } 
 
     render() {
         return (

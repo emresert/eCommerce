@@ -9,6 +9,7 @@ import CartList from './CartList'
 import { Switch, Route } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import alertify from "alertifyjs";
+import FormDemo from './FormDemo';
 
 export default class App extends Component {
 
@@ -117,7 +118,7 @@ export default class App extends Component {
                   )}>
 
                   </Route>
-
+                  <Route path="/formdemo" component={FormDemo}></Route>
                 <Route component={NotFound}></Route>
 
               </Switch>
