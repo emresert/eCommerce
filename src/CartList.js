@@ -2,6 +2,23 @@ import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap'
 
 export default class CartList extends Component {
+
+    renderEmptyCart (){
+        return(
+            <Table striped>
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+             <tr>
+                 <td> Your Cart is empty now.</td>
+             </tr>
+            </tbody>
+    </Table>
+        )
+    }
     renderCart (){
 
         return (
@@ -37,7 +54,8 @@ export default class CartList extends Component {
     render() {
         return (
             <div>
-                {this.renderCart()}
+                {console.log("Length :" + this.props.cart.length)}
+                {this.props.cart.length<=0?this.renderEmptyCart():this.renderCart()}
             </div>
         )
     }
