@@ -92,22 +92,30 @@ export default class App extends Component {
 
             <Col xs="9">
 
-           
+
               <Switch>
-
-                <Route exact path="/" component={NotFound}></Route>
-
-                <Route exact path="/cart" component={CartList} ></Route>
-
                 <Route exact path="/" render={props => (
 
-                  <ProductList 
-                     {...props}
-                     products={this.state.products} 
-                     addToCart={this.addToCart} >
-                  </ProductList> )}>
+                  <ProductList
+                    {...props}
+                    products={this.state.products}
+                    addToCart={this.addToCart} >
+                  </ProductList>)}>
 
                 </Route>
+
+                <Route exact path="/cart" 
+                render= {
+                  props => (
+                    <CartList
+                    {...props}
+                     cart={this.state.cart}
+                     removeItemFromCart={this.removeItemFromCart}
+                    ></CartList>
+                    
+                  )}>
+
+                  </Route>
 
                 <Route component={NotFound}></Route>
 

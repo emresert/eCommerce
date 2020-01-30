@@ -6,6 +6,9 @@ import {
     DropdownItem, Badge, NavItem, NavLink
 } from 'reactstrap';
 
+// Link için element import edildi.
+import {Link} from 'react-router-dom'
+
 export default class CartSummary extends Component {
     renderSummary() {
         return (
@@ -29,7 +32,7 @@ export default class CartSummary extends Component {
 
                         <DropdownItem divider />
                         <DropdownItem>
-                            Reset
+                         <Link to="cart">Go to Cart</Link>
                         </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledDropdown>
