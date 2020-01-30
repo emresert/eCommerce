@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
+import { Component } from 'react'
 import Navi from './Navi';
 import CategoryList from './CategoryList';
 import ProductList from './ProductList';
+import NotFound from './NotFound'
+import CartList from './CartList'
+import { Switch, Route } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
-import { Component } from 'react'
-
 import alertify from "alertifyjs";
-
 
 export default class App extends Component {
 
@@ -16,14 +17,14 @@ export default class App extends Component {
     categories: [],
     products: [],
     apiUrl: "http://localhost:3000/",
-    cart:[]
+    cart: []
   }
 
 
   changeCurrentCategory = dataForChange => {
     this.setState({ currentCategory: dataForChange.categoryName });
   }
-  
+
   getCategories = () => {
     fetch(this.state.apiUrl + "categories")
       .then(res => res.json())
@@ -46,24 +47,24 @@ export default class App extends Component {
     }
   }
 
-  addToCart = (_product) =>{
-     let newCart = this.state.cart;
-     let addedItem =newCart.find(p=>p.product.id === _product.id)
-      
-     if (addedItem) {
-       addedItem.quantity = addedItem.quantity + 1 ;
-     }
-     else{
-      newCart.push({product:_product,quantity:1});
-     }
+  addToCart = (_product) => {
+    let newCart = this.state.cart;
+    let addedItem = newCart.find(p => p.product.id === _product.id)
 
-     this.setState({cart:newCart});
-     alertify.success(_product.productName + " is added to cart")
+    if (addedItem) {
+      addedItem.quantity = addedItem.quantity + 1;
+    }
+    else {
+      newCart.push({ product: _product, quantity: 1 });
+    }
+
+    this.setState({ cart: newCart });
+    alertify.success(_product.productName + " is added to cart")
   }
 
-  removeItemFromCart =(_product)=>{
-    let newCart= this.state.cart.filter(p=>p.product.id !== _product.id );
-    this.setState({cart:newCart});
+  removeItemFromCart = (_product) => {
+    let newCart = this.state.cart.filter(p => p.product.id !== _product.id);
+    this.setState({ cart: newCart });
   }
 
   componentDidMount() {
@@ -90,12 +91,29 @@ export default class App extends Component {
             </Col>
 
             <Col xs="9">
-              
-              <ProductList products={this.state.products} addToCart = {this.addToCart} >
 
-              </ProductList>
+           
+              <Switch>
+
+                <Route exact path="/" component={NotFound}></Route>
+
+                <Route exact path="/cart" component={CartList} ></Route>
+
+                <Route exact path="/" render={props => (
+
+                  <ProductList 
+                     {...props}
+                     products={this.state.products} 
+                     addToCart={this.addToCart} >
+                  </ProductList> )}>
+
+                </Route>
+
+                <Route component={NotFound}></Route>
+
+              </Switch>
+
             </Col>
-
           </Row>
         </Container>
       </div>

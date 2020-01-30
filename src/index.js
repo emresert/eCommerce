@@ -5,13 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'alertifyjs/build/css/alertify.min.css' 
-
-
-// install edilen npm modülünden tarayıcı router
-// modülünü import ettik
 import {BrowserRouter} from 'react-router-dom';
 
-// <App> componenti'ni BrowserRouterin içine aldık
 ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
