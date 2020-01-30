@@ -12,7 +12,7 @@ function App() {
     
     <div className="App">
       
-    <Button color="danger mt-5">Danger!</Button>
+    
     </div>
   );
 }
