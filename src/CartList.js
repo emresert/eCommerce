@@ -54,7 +54,6 @@ export default class CartList extends Component {
     render() {
         return (
             <div>
-                {console.log("Length :" + this.props.cart.length)}
                 {this.props.cart.length<=0?this.renderEmptyCart():this.renderCart()}
             </div>
         )

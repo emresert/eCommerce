@@ -31,13 +31,13 @@ export default class Navi extends Component {
         return (
             <div>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">reactstrap</NavbarBrand>
+                    <NavbarBrand href="/">e-commerce</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
 
                             <NavItem >
-                                <NavLink >Sepette - {this.props.cartItems.length}</NavLink>
+                                <NavLink >Cart Item - {this.props.cartItems.length}</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="">GitHub</NavLink>

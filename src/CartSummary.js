@@ -52,7 +52,6 @@ export default class CartSummary extends Component {
 
         return (
             <div>
-                {console.log(this.props.cartItemsFromApp.length)}
                 {this.props.cartItemsFromApp.length > 0 ? this.renderSummary() : this.renderEmpty()}
             </div>
 
