@@ -118,7 +118,16 @@ export default class App extends Component {
                   )}>
 
                   </Route>
-                <Route path="/formdemo" component={FormDemo}></Route>
+              
+                <Route path="/formdemo" 
+                 render= {
+                  props => (
+                    <FormDemo
+                    {...props}
+                     cart={this.state.cart}
+                    ></FormDemo>
+                    
+                  )} ></Route>
                 <Route component={NotFound}></Route>
 
               </Switch>
