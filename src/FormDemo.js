@@ -28,10 +28,11 @@ export default class FormDemo extends Component {
         alertify.success(this.state.userName + " information added to db")
         console.log(this.state)
     }
-
+    
 
     render() {
-
+       
+    
         const testStyle = {
             display: "none",
         }

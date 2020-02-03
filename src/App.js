@@ -11,6 +11,13 @@ import { Container, Row, Col } from 'reactstrap';
 import alertify from "alertifyjs";
 import FormDemo from './FormDemo';
 
+
+import TestComponent from './TestComponent';
+
+// Provider import edildi. Export default parametresini 
+// vermediğimiz için süslü parantez içine aldık.
+import {TestProvider} from './Context'
+
 export default class App extends Component {
 
   state = {
@@ -96,6 +103,8 @@ export default class App extends Component {
 
 
               <Switch>
+
+
                 <Route exact path="/" render={props => (
 
                   <ProductList
@@ -106,34 +115,54 @@ export default class App extends Component {
 
                 </Route>
 
-                <Route exact path="/cart" 
-                render= {
-                  props => (
-                    <CartList
-                    {...props}
-                     cart={this.state.cart}
-                     removeItemFromCart={this.removeItemFromCart}
-                    ></CartList>
-                    
-                  )}>
+                <Route exact path="/cart"
+                  render={
+                    props => (
+                      <CartList
+                        {...props}
+                        cart={this.state.cart}
+                        removeItemFromCart={this.removeItemFromCart}
+                      ></CartList>
 
-                  </Route>
-              
-                <Route path="/formdemo" 
-                 render= {
-                  props => (
-                    <FormDemo
-                    {...props}
-                     cart={this.state.cart}
-                    ></FormDemo>
-                    
-                  )} ></Route>
+                    )}>
+
+                </Route>
+
+                <Route path="/formdemo"
+                  render={
+                    props => (
+                      <FormDemo
+                        {...props}
+                        cart={this.state.cart}
+                        removeItemFromCart={this.removeItemFromCart}
+                      ></FormDemo>
+
+                    )} ></Route>
+
+                <Route path="/test" component={TestComponent}></Route>
                 <Route component={NotFound}></Route>
 
               </Switch>
 
             </Col>
           </Row>
+
+
+
+       {/* container işlemi görecek provider context , state'leri kullanacak
+           component'lerin en dışına yani child componentleri kapsayacak şekilde
+           yazılmalıdır.    
+       */}
+          <TestProvider>
+
+            <TestComponent>
+
+            </TestComponent>
+
+          </TestProvider>
+
+
+
         </Container>
       </div>
     )
