@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Component } from 'react'
 import Navi from './Navi';
 import CategoryList from './CategoryList';
@@ -13,9 +12,6 @@ import FormDemo from './FormDemo';
 
 
 import TestComponent from './TestComponent';
-
-// Provider import edildi. Export default parametresini 
-// vermediğimiz için süslü parantez içine aldık.
 import {TestProvider} from './Context'
 
 export default class App extends Component {
@@ -149,10 +145,6 @@ export default class App extends Component {
 
 
 
-       {/* container işlemi görecek provider context , state'leri kullanacak
-           component'lerin en dışına yani child componentleri kapsayacak şekilde
-           yazılmalıdır.    
-       */}
           <TestProvider>
 
             <TestComponent>
