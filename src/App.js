@@ -11,8 +11,6 @@ import alertify from "alertifyjs";
 import FormDemo from './FormDemo';
 
 
-import TestComponent from './TestComponent';
-import {TestProvider} from './Context'
 
 export default class App extends Component {
 
@@ -78,6 +76,7 @@ export default class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <Container>
@@ -135,7 +134,7 @@ export default class App extends Component {
 
                     )} ></Route>
 
-                <Route path="/test" component={TestComponent}></Route>
+
                 <Route component={NotFound}></Route>
 
               </Switch>
@@ -143,22 +142,11 @@ export default class App extends Component {
             </Col>
           </Row>
 
-
-
-          <TestProvider>
-
-            <TestComponent>
-
-            </TestComponent>
-
-          </TestProvider>
-
-
-
         </Container>
       </div>
     )
   }
 }
+
 
 
