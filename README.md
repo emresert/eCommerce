@@ -25,7 +25,7 @@ You will also see any lint errors in the console.
 
 1-) npm install -g json-server 
 
-## AlertfyJS
+## AlertifyJS
 
 1-) npm install alertifyjs 
 
